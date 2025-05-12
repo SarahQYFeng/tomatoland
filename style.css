@@ -1,0 +1,259 @@
+* {
+	/* margin: 20; */
+	padding: 0;
+	box-sizing: border-box;
+	cursor: url('assets/meta/cursor.png') 16 16, auto;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+
+@font-face {
+    font-family: 'Planar';
+    src: url('assets/fonts/GT-Planar-VF.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+body {
+	margin: 20px;
+	font-family: "Planar", sans-serif;
+	font-weight: 300;
+    font-size: 20pt;
+    line-height: 1.3em;
+}
+
+
+p{
+	font-size: 20pt;
+    line-height: 1.3em;
+}
+
+h1{
+	font-size: 20pt;
+    line-height: 1.3em;
+	color: black;
+	font-weight: 450;
+} 
+
+h1:hover{
+	font-size: 40pt;
+    line-height: 1.3em;
+	color: blue;
+	transition: 0.2s ease-in-out;
+	cursor: url('assets/meta/cursor_hover.png') 16 16, auto;
+}
+
+h2{
+	font-size: 20pt;
+    line-height: 1.3em;
+	color: black;
+	font-weight: 450;
+}
+
+a{
+	color: black;
+	text-decoration: none;
+    font-weight: 300;
+	transition: 0.2s ease-in-out;
+}
+
+a:hover{
+	color: blue;
+	font-weight: 450;
+	/* cursor: url('assets/meta/cursor_hover.png') 16 16, auto; */
+}
+
+
+
+/* Links */
+.nav-link {
+    position: fixed;
+    top: 20px;
+    left: 20px; 
+    /* width: 250px; */
+	width: 500px;
+	height: 200px;
+    z-index: 1000;
+} 
+  
+.title img {
+  /* width: 250px; */
+	width: 500px;
+	height: auto;
+	top: 5px;
+	position: absolute;
+	display: block;
+	transition: 0.2s ease-in-out;
+}
+
+.title .hover {
+  opacity: 0;
+}
+
+.title:hover .hover {
+  opacity: 1;
+  cursor: url('assets/meta/cursor_hover.png') 16 16, auto;
+}
+
+.title:hover .defalt {
+  opacity: 0;
+}
+
+/* Scroll arrows */
+.arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    user-select: none;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.arrow h1 {
+    font-size: 20pt;
+    color: black;
+    margin: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.arrow:hover h1 {
+    font-size: 40pt;
+    color: blue;
+	cursor: url('assets/meta/cursor_hover.png') 16 16, auto;
+}
+
+.footer {
+    position: fixed;
+    bottom: 16px;
+    left: 20px; 
+    width: 250px;
+    z-index: 1000;
+} 
+  
+
+/* ————————————————————————————————————————————————————————————————— */
+/* ————————————————————————————————————————————————————————————————— */
+/* MAIN CONTENT */
+/* ————————————————————————————————————————————————————————————————— */
+/* ————————————————————————————————————————————————————————————————— */
+#container{
+	width: 110em;
+	/* height: 100vh; */
+	margin: 6.8em auto 0;
+	display: block;
+	z-index: 0;
+
+}
+
+.work {
+	width: 10em;
+	height: 10em;
+	position: relative;
+	float: left;
+	margin: 0 40px 60px;
+	overflow: hidden;
+	user-select: none;
+}
+  
+.work img {
+	position: absolute;
+	display: block;
+	transition: 0.2s ease-in-out;
+}
+
+.work .gif {
+	opacity: 0;
+}
+
+.work:hover .gif {
+	opacity: 1;
+	cursor: url('assets/meta/cursor_hover.png') 16 16, auto;
+}
+
+.work:hover .static {
+	opacity: 0;
+}
+
+.not_available_work {
+	width: 10em;
+	height: 10em;
+	position: relative;
+	float: left;
+	margin: 0 40px 60px;
+	overflow: hidden;
+	user-select: none;
+	cursor: url('assets/meta/cursor_unavailable.png') 16 16, auto;
+}
+  
+.not_available_work img {
+	position: absolute;
+	display: block;
+	transition: 0.2s ease-in-out;
+}
+
+.not_available_work .gif {
+	opacity: 0;
+}
+
+.not_available_work:hover .gif {
+	opacity: 1;
+	cursor: url('assets/meta/cursor_unavailable.png') 16 16, auto;
+}
+
+.not_available_work:hover .static {
+	opacity: 0;
+}
+
+
+#description-area {
+	position: fixed;
+	bottom: 16px;
+	right: 20px;
+	width: 50%;
+	/* width: 250px; */
+	z-index: 1000;
+	transition: 0.2s ease-in-out;
+	text-align: right;
+	pointer-events: none;
+}
+
+
+
+
+/* raining tomato effect */
+#rain-container {
+	position: fixed;
+	top: -1vh;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	z-index: 9999;
+	overflow: hidden;
+}
+  
+.raindrop {
+	will-change: transform, opacity;
+	transition: opacity 0.5s ease;
+}
+  
+.raindrop.fade-out {
+	opacity: 0;
+}
+  
+  
