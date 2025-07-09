@@ -40,24 +40,91 @@ title.addEventListener('mouseleave', () => {
     descriptionArea.innerHTML = '🍅↖(#^.^#)↗🍅<br>Hi human, welcome to <br>TOMATOLAND.';
 });
 
+// 移动端轮播功能
+let currentGroup = 0;
+const allWorks = [...document.querySelectorAll('.work'), ...document.querySelectorAll('.not_available_work')];
+const worksPerGroup = 2;
+const totalGroups = Math.ceil(allWorks.length / worksPerGroup);
+
+function showGroup(groupIndex) {
+    // 隐藏所有作品
+    allWorks.forEach(work => {
+        work.classList.add('hidden');
+    });
+    
+    // 显示当前组的作品
+    const startIndex = groupIndex * worksPerGroup;
+    for (let i = startIndex; i < startIndex + worksPerGroup && i < allWorks.length; i++) {
+        allWorks[i].classList.remove('hidden');
+    }
+}
+
+function nextGroup() {
+    currentGroup = (currentGroup + 1) % totalGroups;
+    showGroup(currentGroup);
+}
+
+function prevGroup() {
+    currentGroup = (currentGroup - 1 + totalGroups) % totalGroups;
+    showGroup(currentGroup);
+}
+
+// 检测是否为移动端
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+// 初始化显示
+if (isMobile()) {
+    showGroup(0);
+}
+
+// 监听窗口大小变化
+window.addEventListener('resize', () => {
+    if (isMobile()) {
+        showGroup(currentGroup);
+    } else {
+        // 桌面端显示所有作品
+        allWorks.forEach(work => {
+            work.classList.remove('hidden');
+        });
+    }
+});
+
 const scrollAmount = 380; 
 
 document.querySelector('.next').addEventListener('click', () => {
-    window.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    if (isMobile()) {
+        nextGroup();
+    } else {
+        window.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
 });
 
 document.querySelector('.prev').addEventListener('click', () => {
-    window.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    if (isMobile()) {
+        prevGroup();
+    } else {
+        window.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
 });
 
 
 function keyPressed() {
   if (keyCode === ArrowRight) {
-    window.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    if (isMobile()) {
+        nextGroup();
+    } else {
+        window.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   }
 
   if (keyCode === ArrowLeft) {
-    window.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    if (isMobile()) {
+        prevGroup();
+    } else {
+        window.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
   }
 }
 

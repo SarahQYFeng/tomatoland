@@ -296,6 +296,30 @@ a:hover{
         height: auto;
     }
     
+    /* 移动端轮播布局 */
+    #container {
+        width: 100%;
+        max-width: 10em;
+        margin: 4em auto 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* 作品轮播容器 */
+    .work, .not_available_work {
+        width: 10em;
+        height: 10em;
+        margin: 0 0 60px 0;
+        float: none;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    /* 隐藏非当前组的作品 */
+    .work.hidden, .not_available_work.hidden {
+        display: none;
+    }
+    
     /* 调整箭头 */
     .arrow h1 {
         font-size: 16pt;
@@ -343,6 +367,30 @@ a:hover{
     
     .title img {
         width: 200px;
+    }
+    
+    /* 移动端轮播布局 */
+    #container {
+        width: 100%;
+        max-width: 10em;
+        margin: 3em auto 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* 作品轮播容器 */
+    .work, .not_available_work {
+        width: 10em;
+        height: 10em;
+        margin: 0 0 40px 0;
+        float: none;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    /* 隐藏非当前组的作品 */
+    .work.hidden, .not_available_work.hidden {
+        display: none;
     }
     
     #description-area {
