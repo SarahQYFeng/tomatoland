@@ -25,7 +25,7 @@ html {
 
 body {
 	margin: 20px;
-	font-family: Arial, sans-serif; /* 添加更安全的字体回退 */
+	font-family: "Planar", Arial, sans-serif; /* 添加更安全的字体回退 */
 	font-weight: 300;
     font-size: 20pt;
     line-height: 1.3em;
@@ -296,22 +296,6 @@ a:hover{
         height: auto;
     }
     
-    /* 调整主容器 - 保持一列布局 */
-    #container {
-        width: 100%;
-        max-width: 10em; /* 保持单个work的宽度 */
-        margin: 4em auto 0;
-    }
-    
-    /* 调整作品网格 - 保持一列两行 */
-    .work, .not_available_work {
-        width: 10em; /* 保持原始宽度 */
-        height: 10em; /* 保持原始高度 */
-        margin: 0 0 60px 0; /* 只保留底部间距，移除左右间距 */
-        float: none; /* 移除浮动，让元素垂直排列 */
-        display: block; /* 确保块级显示 */
-    }
-    
     /* 调整箭头 */
     .arrow h1 {
         font-size: 16pt;
@@ -359,22 +343,6 @@ a:hover{
     
     .title img {
         width: 200px;
-    }
-    
-    /* 调整主容器 - 保持一列布局 */
-    #container {
-        width: 100%;
-        max-width: 10em;
-        margin: 3em auto 0;
-    }
-    
-    /* 调整作品网格 - 保持一列两行 */
-    .work, .not_available_work {
-        width: 10em; /* 保持原始宽度 */
-        height: 10em; /* 保持原始高度 */
-        margin: 0 0 40px 0; /* 减少底部间距 */
-        float: none;
-        display: block;
     }
     
     #description-area {
