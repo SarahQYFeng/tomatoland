@@ -20,14 +20,16 @@ html {
     src: url('assets/fonts/GT-Planar-VF.woff2') format('woff2');
     font-weight: 100 900;
     font-style: normal;
+    font-display: swap; /* 添加字体显示策略 */
 }
 
 body {
 	margin: 20px;
-	font-family: "Planar", sans-serif;
+	font-family: "Planar", Arial, sans-serif; /* 添加更安全的字体回退 */
 	font-weight: 300;
     font-size: 20pt;
     line-height: 1.3em;
+    font-style: normal; /* 强制正常字体样式 */
 }
 
 
@@ -254,6 +256,119 @@ a:hover{
   
 .raindrop.fade-out {
 	opacity: 0;
+}
+  
+  
+/* ————————————————————————————————————————————————————————————————— */
+/* 移动端响应式设计 */
+/* ————————————————————————————————————————————————————————————————— */
+
+@media screen and (max-width: 768px) {
+    body {
+        margin: 10px;
+        font-size: 16pt;
+        font-style: normal; /* 确保移动端不是斜体 */
+    }
+    
+    p, h1, h2 {
+        font-size: 16pt;
+        font-style: normal; /* 确保移动端不是斜体 */
+    }
+    
+    h1:hover {
+        font-size: 18pt; /* 移动端hover效果较小 */
+    }
+    
+    /* 调整标题链接大小 */
+    .nav-link {
+        width: 250px;
+        height: 100px;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .title img {
+        width: 250px;
+        height: auto;
+    }
+    
+    /* 调整主容器 */
+    #container {
+        width: 90%;
+        margin: 4em auto 0;
+    }
+    
+    /* 调整作品网格 */
+    .work, .not_available_work {
+        width: 8em;
+        height: 8em;
+        margin: 0 20px 40px;
+    }
+    
+    /* 调整箭头 */
+    .arrow h1 {
+        font-size: 16pt;
+    }
+    
+    .arrow:hover h1 {
+        font-size: 18pt; /* 移动端hover效果较小 */
+    }
+    
+    /* 调整页脚 */
+    .footer {
+        width: 200px;
+        left: 10px;
+        bottom: 10px;
+    }
+    
+    /* 调整描述区域 */
+    #description-area {
+        width: 80%;
+        right: 10px;
+        bottom: 10px;
+        font-size: 14pt;
+    }
+}
+
+/* 小屏幕手机适配 */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14pt;
+        margin: 5px;
+        font-style: normal;
+    }
+    
+    p, h1, h2 {
+        font-size: 14pt;
+        font-style: normal;
+    }
+    
+    .nav-link {
+        width: 200px;
+        height: 80px;
+        top: 5px;
+        left: 5px;
+    }
+    
+    .title img {
+        width: 200px;
+    }
+    
+    #container {
+        width: 95%;
+        margin: 3em auto 0;
+    }
+    
+    .work, .not_available_work {
+        width: 6em;
+        height: 6em;
+        margin: 0 10px 30px;
+    }
+    
+    #description-area {
+        width: 90%;
+        font-size: 12pt;
+    }
 }
   
   
