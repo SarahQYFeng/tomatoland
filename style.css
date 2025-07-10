@@ -309,7 +309,7 @@ a:hover{
     .work, .not_available_work {
         width: 12em;
         height: 12em;
-        margin: 0 0 40px 0;
+        margin: 40px 0 0 0;
         float: none;
         display: block;
         transition: transform 0.3s ease-in-out;
@@ -382,7 +382,7 @@ a:hover{
     .work, .not_available_work {
         width: 12em;
         height: 12em;
-        margin: 0 0 20px 0;
+        margin: 20px 0 0 0;
         float: none;
         display: block;
         transition: transform 0.3s ease-in-out;
