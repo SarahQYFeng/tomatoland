@@ -14,16 +14,18 @@ html {
 	scroll-behavior: smooth;
 }
 
+
 @font-face {
-    font-family: 'Planar';
-    src: url('../../assets/fonts/GT-Planar-VF.woff2') format('woff2');
+    font-family: 'SwitzerL';
+    src: url('assets/fonts/Switzer-Light.ttf') format('ttf');
     font-weight: 100 900;
     font-style: normal;
+    font-display: swap; /* 添加字体显示策略 */
 }
 
 body {
 	margin: 20px;
-	font-family: "Planar", sans-serif;
+	font-family: "SwitzerL", Arial, sans-serif; /* 添加更安全的字体回退 */
 	font-weight: 300;
     font-size: 20pt;
     line-height: 1.3em;
