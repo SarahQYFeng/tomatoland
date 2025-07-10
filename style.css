@@ -299,7 +299,7 @@ a:hover{
     /* 移动端轮播布局 */
     #container {
         width: 100%;
-        max-width: 13em;
+        max-width: 12em;
         margin: 4em auto 0;
         position: relative;
         overflow: hidden;
@@ -307,8 +307,8 @@ a:hover{
     
     /* 作品轮播容器 */
     .work, .not_available_work {
-        width: 13em;
-        height: 13em;
+        width: 12em;
+        height: 12em;
         margin: 0 0 60px 0;
         float: none;
         display: block;
@@ -372,7 +372,7 @@ a:hover{
     /* 移动端轮播布局 */
     #container {
         width: 100%;
-        max-width: 13em;
+        max-width: 12em;
         margin: 3em auto 0;
         position: relative;
         overflow: hidden;
@@ -380,8 +380,8 @@ a:hover{
     
     /* 作品轮播容器 */
     .work, .not_available_work {
-        width: 13em;
-        height: 13em;
+        width: 12em;
+        height: 12em;
         margin: 0 0 40px 0;
         float: none;
         display: block;
