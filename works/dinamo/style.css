@@ -15,23 +15,26 @@ html {
 }
 
 @font-face {
-    font-family: 'Planar';
-    src: url('../../assets/fonts/GT-Planar-VF.woff2') format('woff2');
+    font-family: 'SwitzerL';
+    src: url('../../assets/fonts/Switzer-Light.ttf') format('ttf');
     font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
 }
 
 body {
 	margin: 20px;
-	font-family: "Planar", sans-serif;
+	font-family: "SwitzerL", Arial, sans-serif;
 	font-weight: 300;
     font-size: 20pt;
     line-height: 1.3em;
+    font-style: normal !important;
 }
 
 p{
 	font-size: 10pt;
     line-height: 1.3em;
+    font-style: normal !important;
 }
 
 h1{
@@ -39,6 +42,7 @@ h1{
     line-height: 1.3em;
 	color: black;
 	font-weight: 450;
+    font-style: normal !important;
 } 
 
 h1:hover{
@@ -54,6 +58,7 @@ h2{
     line-height: 1.3em;
 	color: black;
 	font-weight: 300;
+    font-style: normal !important;
 }
 
 
@@ -62,6 +67,7 @@ a{
 	text-decoration: none;
     font-weight: 300;
 	transition: 0.2s ease-in-out;
+    font-style: normal !important;
 }
 
 a:hover{
@@ -223,5 +229,93 @@ a:hover{
 	left: 50%;
 	transform: translate(-50%, -50%);
 	pointer-events: none;
+}
+
+/* 移动端响应式设计 */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 10px;
+        font-size: 16pt;
+        font-style: normal !important;
+    }
+    
+    p, h1, h2 {
+        font-size: 14pt;
+        font-style: normal !important;
+    }
+    
+    h1:hover {
+        font-size: 16pt;
+    }
+    
+    .nav-link {
+        width: 200px;
+        height: 150px;
+        top: 10px;
+        left: 10px;
+    }
+    
+    .title img {
+        width: 200px;
+    }
+    
+    .text-wrapper {
+        margin-left: 5%;
+        width: 90%;
+        position: relative;
+        top: 200px;
+    }
+    
+    .description {
+        margin-left: 5%;
+        width: 90%;
+        position: relative;
+        top: 220px;
+    }
+    
+    #detail_container {
+        width: 95%;
+        margin: 300px auto 0;
+    }
+    
+    .previous {
+        left: 10px;
+    }
+    
+    .next {
+        right: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14pt;
+        margin: 5px;
+    }
+    
+    p, h1, h2 {
+        font-size: 12pt;
+    }
+    
+    .nav-link {
+        width: 150px;
+        height: 120px;
+    }
+    
+    .title img {
+        width: 150px;
+    }
+    
+    .text-wrapper {
+        top: 160px;
+    }
+    
+    .description {
+        top: 180px;
+    }
+    
+    #detail_container {
+        margin: 240px auto 0;
+    }
 }
 

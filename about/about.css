@@ -17,18 +17,20 @@ html {
 
 
 @font-face {
-    font-family: 'Planar';
-    src: url('../assets/fonts/GT-Planar-VF.woff2') format('woff2');
+    font-family: 'SwitzerL';
+    src: url('../assets/fonts/Switzer-Light.ttf') format('ttf');
     font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
 }
 
 body {
 	margin: 2rem; 
-	font-family: "Planar", sans-serif;
+	font-family: "SwitzerL", Arial, sans-serif;
 	font-weight: 300;
     line-height: 1.3em;
     background-color: blue;
+    font-style: normal !important;
 }
 
 
@@ -36,6 +38,7 @@ p{
 	font-size: 30pt;
     line-height: 1.3em;
     color: white;
+    font-style: normal !important;
 }
 
 a{
@@ -43,6 +46,7 @@ a{
 	text-decoration: none;
     font-weight: 300;
 	transition: 0.2s ease-in-out;
+    font-style: normal !important;
 }
 
 a:hover{
@@ -92,3 +96,73 @@ a:hover{
     width: auto;
     z-index: 1000;
 }
+
+/* 移动端响应式设计 */
+@media screen and (max-width: 768px) {
+    * {
+        overflow-y: auto; /* 允许移动端滚动 */
+    }
+    
+    html {
+        font-size: calc(18px + 0.5vw);
+    }
+    
+    body {
+        margin: 1rem;
+        font-style: normal !important;
+    }
+    
+    p {
+        font-size: 20pt;
+        font-style: normal !important;
+    }
+    
+    a {
+        font-style: normal !important;
+    }
+    
+    .nav-link {
+        width: 60vw;
+        max-width: 300px;
+        height: 10vh;
+        top: 1rem;
+        left: 1rem;
+    }
+    
+    .title img {
+        height: 100%;
+        max-width: 300px;
+    }
+    
+    .footer {
+        bottom: 0.5rem;
+        left: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: calc(16px + 0.5vw);
+    }
+    
+    body {
+        margin: 0.5rem;
+    }
+    
+    p {
+        font-size: 16pt;
+    }
+    
+    .nav-link {
+        width: 70vw;
+        max-width: 250px;
+        height: 8vh;
+        top: 0.5rem;
+        left: 0.5rem;
+    }
+    
+    .title img {
+        max-width: 250px;
+    }
+}
+

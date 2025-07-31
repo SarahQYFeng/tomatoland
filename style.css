@@ -74,7 +74,7 @@ a{
 a:hover{
 	color: blue;
 	font-weight: 450;
-	/* cursor: url('assets/meta/cursor_hover.png') 16 16, auto; */
+	cursor: url('assets/meta/cursor_hover.png') 16 16, auto;
 }
 
 
