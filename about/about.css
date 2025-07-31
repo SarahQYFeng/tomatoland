@@ -1,0 +1,94 @@
+* {
+	padding: 0;
+	box-sizing: border-box;
+	cursor: url('../assets/meta/cursor-white.png') 16 16, auto;
+    overflow-y: hidden;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+html {
+	font-size: calc(22px + 0.3vw);
+	scroll-behavior: smooth;
+}
+
+
+@font-face {
+    font-family: 'Planar';
+    src: url('../assets/fonts/GT-Planar-VF.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+body {
+	margin: 2rem; 
+	font-family: "Planar", sans-serif;
+	font-weight: 300;
+    line-height: 1.3em;
+    background-color: blue;
+}
+
+
+p{
+	font-size: 30pt;
+    line-height: 1.3em;
+    color: white;
+}
+
+a{
+	color: white;
+	text-decoration: none;
+    font-weight: 300;
+	transition: 0.2s ease-in-out;
+}
+
+a:hover{
+	color: red;
+	font-weight: 450;
+    cursor: url('../assets/meta/cursor-red.png') 16 16, auto;
+}
+
+
+/* Links */
+.nav-link {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 30vw; 
+    max-width: 500px; 
+    height: 12vh;
+    z-index: 1000;
+}
+
+.title img {
+    height: 100%;
+    width: auto;
+    max-width: 500px; 
+	position: absolute;
+	display: block;
+	transition: 0.2s ease-in-out
+}
+
+.title .hover {
+  opacity: 0;
+}
+
+.title:hover .hover {
+  opacity: 1;
+  cursor: url('../assets/meta/cursor-red.png') 16 16, auto;
+}
+
+.title:hover .defalt {
+  opacity: 0;
+}
+
+.footer {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    width: auto;
+    z-index: 1000;
+}
