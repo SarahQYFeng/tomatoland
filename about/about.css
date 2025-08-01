@@ -59,18 +59,17 @@ a:hover{
 /* Links */
 .nav-link {
     position: fixed;
-    top: 1.5rem;
-    left: 1.5rem;
-    width: 30vw; 
-    max-width: 500px; 
-    height: 12vh;
+    top: 20px;
+    left: 20px;
+    width: 500px;
+    height: 200px;
     z-index: 1000;
 }
 
 .title img {
-    height: 100%;
-    width: auto;
-    max-width: 500px; 
+    width: 500px;
+    height: auto;
+    top: 5px;
 	position: absolute;
 	display: block;
 	transition: 0.2s ease-in-out
@@ -122,16 +121,15 @@ a:hover{
     }
     
     .nav-link {
-        width: 60vw;
-        max-width: 300px;
-        height: 10vh;
-        top: 1rem;
-        left: 1rem;
+        width: 250px;
+        height: 100px;
+        top: 10px;
+        left: 10px;
     }
     
     .title img {
-        height: 100%;
-        max-width: 300px;
+        width: 250px;
+        height: auto;
     }
     
     .footer {
@@ -154,15 +152,14 @@ a:hover{
     }
     
     .nav-link {
-        width: 70vw;
-        max-width: 250px;
-        height: 8vh;
-        top: 0.5rem;
-        left: 0.5rem;
+        width: 200px;
+        height: 80px;
+        top: 5px;
+        left: 5px;
     }
     
     .title img {
-        max-width: 250px;
+        width: 200px;
     }
 }
 
