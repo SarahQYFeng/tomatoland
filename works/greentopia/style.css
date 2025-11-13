@@ -89,7 +89,7 @@ a:hover{
 	top: 5px;
 	position: absolute;
 	display: block;
-	transition: 0.2s ease-in-out;
+	transition: 1s ease-in-out;
 	/* backdrop-filter: blur(12px); */
 }
 
