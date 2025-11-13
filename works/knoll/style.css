@@ -89,7 +89,7 @@ a:hover{
 	top: 5px;
 	position: absolute;
 	display: block;
-	transition: 0.2s ease-in-out;
+	transition: 1s ease-in-out;
 	/* backdrop-filter: blur(12px); */
 }
 
@@ -148,7 +148,7 @@ a:hover{
     margin: 0 10px 10px 0;
     object-fit: contain;
 	opacity: 0;
-	transition: opacity 0.2s ease-in-out;
+	transition: opacity 1s ease-in-out;
 }
 
 .images.visible {
