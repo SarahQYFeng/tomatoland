@@ -1,0 +1,113 @@
+/* 基础 */
+* { padding: 0; box-sizing: border-box; cursor: url('assets/meta/cursor-white.png') 16 16, auto; }
+img { max-width: 100%; max-height: 100%; }
+
+html { font-size: calc(22px + 0.3vw); scroll-behavior: smooth; }
+
+@font-face{
+  font-family:'Planar';
+  src:url('assets/fonts/GT-Planar-VF.woff2') format('woff2');
+  font-weight:100 900;
+  font-style:normal;
+}
+
+body { color:white; margin: .5rem font-family:"Planar", sans-serif; font-weight:300; line-height:1.3em; background-color: blue;}
+
+/* p {font-size: 30pt; line-height:1.3em;} */
+p, h1, h2 { font-size:16pt; line-height:1.3em; }
+h1, h2 { color:#fff; font-weight:450; }
+h1:hover { font-size:40pt; color:red; transition:.2s ease-in-out; cursor:url('assets/meta/cursor-red.png') 16 16, auto; }
+.cn-name {font-family: "PingFang SC", sans-serif; font-weight: 400; letter-spacing: 0.02em; font-size: 0.95em;}
+
+
+a { color:#fff; text-decoration:none; font-weight:300; transition:.2s ease-in-out; }
+a:hover { color:red; font-weight:450; cursor:url('assets/meta/cursor-red.png') 16 16, auto; }
+
+/* ——— Tags（解决：字号16pt、纵向排列、hover同链接） ——— */
+.filters {
+  position: fixed;
+  top: 40px;
+  margin-left: 86%;
+  width: 10%;
+  text-align: left;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;     /* 一行一个 */
+  /* gap: 6px; */
+  font-size: 16pt;            /* 指定字号 */
+  line-height: 1.3em;
+}
+
+.tag-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font: inherit;              /* 继承 16pt */
+  color: #fff;
+  padding: 0;                 /* 像链接一样紧凑 */
+  text-align: left;
+  display: inline-block;
+  position: relative;
+  cursor: url('assets/meta/cursor-white.png') 16 16, auto;
+  transition: color .2s ease-in-out, font-weight .2s ease-in-out;
+}
+
+.tag-btn:hover {
+  color: red;                /* 与 a:hover 同步 */
+  font-weight: 450;
+  cursor: url('assets/meta/cursor-red.png') 16 16, auto;
+}
+
+
+.tag-btn.active {
+  color: red;
+  font-weight: 450;
+  cursor: url('assets/meta/cursor-red.png') 16 16, auto;
+}
+
+.tag-btn:focus-visible {
+  outline: 2px dashed currentColor;
+  outline-offset: 3px;
+}
+
+/* 右上角简介位置保持 */
+.text-wrapper {
+  top: 20px;
+  margin-left: 63%;
+  text-align: left;
+  position: fixed;
+  z-index: 100;
+}
+
+/* Links */
+.nav-link {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 30vw; 
+    max-width: 500px; 
+    height: 12vh;
+    z-index: 1000;
+}
+
+.title img {
+    height: 100%;
+    width: auto;
+    max-width: 500px; 
+	position: absolute;
+	display: block;
+	transition: 0.2s ease-in-out
+}
+
+.title .hover {
+  opacity: 0;
+}
+
+.title:hover .hover {
+  opacity: 1;
+  cursor: url('assets/meta/cursor-red.png') 16 16, auto;
+}
+
+.title:hover .defalt {
+  opacity: 0;
+}
