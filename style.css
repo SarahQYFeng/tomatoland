@@ -175,8 +175,7 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 .raindrop { will-change: transform, opacity; transition: opacity .5s ease; }
 .raindrop.fade-out { opacity: 0; }
 
-/* 响应式略同你原来 */
-/* @media (max-width: 768px){
+@media (max-width: 768px){
   .nav-link{ height:10vh; }
   #description-area{ width:60%; }
 }
@@ -186,7 +185,7 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
   .arrow{ display:none; }
   .work, .not_available_work{ height:6em; width:6em; }
   #description-area{ position: static; width:100%; text-align:left; }
-} */
+}
 
 
 /* 顶部渐变遮罩 */
