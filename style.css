@@ -65,14 +65,6 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 }
 
 
-/* .tag-btn.active::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -2px;
-  height: 1px;
-  background: currentColor;
-} */
-
 .tag-btn:focus-visible {
   outline: 2px dashed currentColor;
   outline-offset: 3px;
@@ -84,7 +76,7 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
   margin-left: 63%;
   text-align: left;
   position: fixed;
-  z-index: 100;
+  z-index: 100; 
 }
 
 /* 左上角标题 */
@@ -94,21 +86,15 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 .title:hover .hover { opacity: 1; cursor:url('assets/meta/cursor_hover.png') 16 16, auto; }
 .title:hover .defalt { opacity: 0; }
 
-/* 箭头 */
-/* .arrow { position: fixed; top: 50%; transform: translateY(-50%); z-index: 1000; }
-.prev { left: 20px; } .next { right: 20px; }
-.arrow h1 { font-size: 1.5rem; color: #000; margin: 0; transition: all .2s ease-in-out; }
-.arrow:hover h1 { font-size: 3rem; color: blue; cursor:url('assets/meta/cursor_hover.png') 16 16, auto; } */
-
 /* 作品区 */
 #container {
   /* 宽度不再固定，自动适配屏幕 */
   width: min(1600px, 92vw);
-  margin: 6.8em auto 4rem;
+  margin: 9em auto 7rem;
   display: grid;
   /* 自动铺列，最小卡片宽度 240px，不够就换行 */
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-  gap: 48px 48px; /* 行、列间距 */
+  gap: 80px 60px; /* 行、列间距 */
   z-index: 0;
 }
 
@@ -175,16 +161,107 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 .raindrop { will-change: transform, opacity; transition: opacity .5s ease; }
 .raindrop.fade-out { opacity: 0; }
 
+/* 响应式布局 - 手机端 */
 @media (max-width: 768px){
-  .nav-link{ height:10vh; }
-  #description-area{ width:60%; }
-}
+  body {
+    margin: 20px;
+  }
 
-@media (max-width: 480px){
-  .nav-link{ position: static; width: 100%; }
-  .arrow{ display:none; }
-  .work, .not_available_work{ height:6em; width:6em; }
-  #description-area{ position: static; width:100%; text-align:left; }
+  /* 标题变成全屏宽 */
+  .nav-link {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* 隐藏 nav-link 中的 br 标签 */
+  .nav-link br {
+    display: none;
+  }
+
+  .title {
+    position: relative;
+    width: 100%;
+  }
+
+  .title a {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .title .defalt {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .title .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: left top;
+  }
+
+  /* 个人信息移到标题下方 */
+  .text-wrapper {
+    position: relative;
+    top: 0;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  /* 隐藏过滤标签 */
+  .filters {
+    display: none;
+  }
+
+  /* 隐藏悬浮描述区 */
+  #description-area {
+    display: none;
+  }
+
+  /* 作品区域 */
+  #container {
+    width: 100%;
+    margin: 0 auto 2rem;
+  }
+
+  /* 隐藏顶部和底部遮罩 */
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  /* 使用 flexbox 重新排序 */
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-link {
+    order: 1;
+  }
+
+  .text-wrapper {
+    order: 2;
+  }
+
+  #container {
+    order: 3;
+  }
+
+  #rain-container {
+    order: 4;
+  }
 }
 
 
@@ -197,7 +274,7 @@ body::before {
   width: 100%;
   height: 180px; /* 覆盖顶部标题区的高度，可按视觉再调 */
   pointer-events: none;
-  background: linear-gradient(to bottom, white 75%, rgba(255,255,255,0) 100%);
+  background: #fff;
   z-index: 50; /* 必须比作品区高，比标题区文字低 */
 }
 
@@ -206,10 +283,10 @@ body::after {
   content: "";
   position: fixed;
   bottom: 0;
-  left: 0;
+  right: 0;
   width: 100%;
-  height: 130px; /* 根据底部 description 的高度调 */
+  height: 120px; /* 根据底部 description 的高度调 */
   pointer-events: none;
-  background: linear-gradient(to top, white 75%, rgba(255,255,255,0) 100%);
+  background: #fff;
   z-index: 50;
 }

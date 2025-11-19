@@ -11,7 +11,7 @@ html { font-size: calc(22px + 0.3vw); scroll-behavior: smooth; }
   font-style:normal;
 }
 
-body { color:white; margin: .5rem font-family:"Planar", sans-serif; font-weight:300; line-height:1.3em; background-color: blue;}
+body { color:white; margin: .5rem font-family；"Planar", sans-serif; font-weight:300; line-height:1.3em; background-color: blue;}
 
 /* p {font-size: 30pt; line-height:1.3em;} */
 p, h1, h2 { font-size:16pt; line-height:1.3em; }
@@ -110,4 +110,102 @@ a:hover { color:red; font-weight:450; cursor:url('assets/meta/cursor-red.png') 1
 
 .title:hover .defalt {
   opacity: 0;
+}
+
+/* 响应式布局 - 手机端 */
+@media (max-width: 768px) {
+  body {
+    margin: 20px;
+  }
+
+  /* 标题变成全屏宽 */
+  .nav-link {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  /* 隐藏 nav-link 中的 br 标签 */
+  .nav-link br {
+    display: none;
+  }
+
+  .title {
+    position: relative;
+    width: 100%;
+  }
+
+  .title a {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .title .defalt {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .title .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: left top;
+  }
+
+  /* 个人信息移到标题下方 */
+  .text-wrapper {
+    position: relative;
+    top: 0;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  /* 隐藏过滤标签 */
+  .filters {
+    display: none;
+  }
+
+  /* 正文段落样式调整 */
+  body > p {
+    font-size: 20pt !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 20px;
+  }
+
+  /* 使用 flexbox 重新排序 */
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-link {
+    order: 1;
+  }
+
+  .text-wrapper {
+    order: 2;
+  }
+
+  body > br {
+    display: none;
+  }
+
+  body > p:nth-of-type(1) {
+    order: 3;
+  }
+
+  body > p:nth-of-type(2) {
+    order: 4;
+  }
 }
