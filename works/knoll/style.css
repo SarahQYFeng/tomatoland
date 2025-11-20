@@ -19,11 +19,12 @@ html {
     src: url('../../assets/fonts/GT-Planar-VF.woff2') format('woff2');
     font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
 }
 
 body {
 	margin: 20px;
-	font-family: "Planar", sans-serif;
+	font-family:  "Planar", sans-serif;
 	font-weight: 300;
     font-size: 20pt;
     line-height: 1.3em;
