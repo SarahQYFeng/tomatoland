@@ -1,7 +1,7 @@
 // ——— 作品过滤（保持你的逻辑） ———
 (function () {
   const btns = document.querySelectorAll('.tag-btn');
-  const items = document.querySelectorAll('.work, .not_available_work');
+  const items = document.querySelectorAll('.work, .not_available_work, .tomato_work');
 
   function applyFilter(tag) {
     const wanted = (tag || 'all').toLowerCase();
@@ -69,6 +69,14 @@ works.forEach(work => {
 });
 const unavailableWorks = document.querySelectorAll('.not_available_work');
 unavailableWorks.forEach(el => {
+  const desc = el.getAttribute('data-description');
+  el.addEventListener('mouseenter', () => { descriptionArea.innerHTML = desc; });
+  el.addEventListener('mouseleave', () => {
+    descriptionArea.innerHTML = '🍅↖(#^.^#)↗🍅<br>Hi human, welcome to <br>TOMATOLAND.';
+  });
+});
+const tomatoWorks = document.querySelectorAll('.tomato_work');
+tomatoWorks.forEach(el => {
   const desc = el.getAttribute('data-description');
   el.addEventListener('mouseenter', () => { descriptionArea.innerHTML = desc; });
   el.addEventListener('mouseleave', () => {

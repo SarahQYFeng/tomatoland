@@ -159,10 +159,6 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
   line-height: 1.3em;
 }
 
-/* 番茄雨 */
-#rain-container { position: fixed; top: -1vh; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; overflow: hidden; }
-.raindrop { will-change: transform, opacity; transition: opacity .5s ease; }
-.raindrop.fade-out { opacity: 0; }
 
 /* 响应式布局 - 手机端 */
 @media (max-width: 768px){
