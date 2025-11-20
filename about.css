@@ -11,7 +11,7 @@ html { font-size: calc(22px + 0.3vw); scroll-behavior: smooth; }
   font-style:normal;
 }
 
-body { color:white; margin: .5rem font-family；"Planar", sans-serif; font-weight:300; line-height:1.3em; background-color: blue;}
+body { color:white; margin: .5rem; font-family: "Planar", sans-serif; font-weight:300; line-height:1.3em; background-color: blue;}
 
 /* p {font-size: 30pt; line-height:1.3em;} */
 p, h1, h2 { font-size:16pt; line-height:1.3em; }
