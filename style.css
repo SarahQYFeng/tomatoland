@@ -99,7 +99,7 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 }
 
 /* 卡片：不再固定 px/em 尺寸，使用 aspect-ratio 保持正方形 */
-.work, .not_available_work {
+.work, .not_available_work, .tomato_work {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;      /* 正方形卡片 */
@@ -109,7 +109,7 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 }
 
 /* 图片覆盖卡片，contain 保证完整可见 */
-.work img, .not_available_work img {
+.work img, .not_available_work img, .tomato_work img{
   position: absolute;
   inset: 0;                 /* top/right/bottom/left 全 0 */
   width: 100%;
@@ -119,12 +119,15 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 }
 
 /* 其余 hover 效果保持 */
-.work .gif, .not_available_work .gif { opacity: 0; }
+.work .gif, .not_available_work .gif, .tomato_work .gif { opacity: 0; }
 .work:hover .gif { opacity: 1; cursor:url('assets/meta/cursor_hover.png') 16 16, auto; }
 .work:hover .static { opacity: 0; }
 .not_available_work { cursor:url('assets/meta/cursor_unavailable.png') 16 16, auto; }
 .not_available_work:hover .gif { opacity: 1; cursor:url('assets/meta/cursor_unavailable.png') 16 16, auto; }
 .not_available_work:hover .static { opacity: 0; }
+.tomato_work { cursor:url('assets/meta/cursor_tomato_cart.png') 16 16, auto; }
+.tomato_work:hover .gif { opacity: 1; cursor:url('assets/meta/cursor_tomato_cart.png') 16 16, auto; }
+.tomato_work:hover .static { opacity: 0; }
 
 /* 响应式：平板与手机时的卡片最小宽度更小、间距更紧 */
 @media (max-width: 1024px) {
