@@ -92,15 +92,6 @@ title.addEventListener('mouseleave', () => {
   descriptionArea.innerHTML = '🍅↖(#^.^#)↗🍅<br>Hi human, welcome to <br>TOMATOLAND.';
 });
 
-// 左右滚动
-const scrollAmount = 380;
-document.querySelector('.next').addEventListener('click', () => {
-  window.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-});
-document.querySelector('.prev').addEventListener('click', () => {
-  window.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-});
-
 // ——— 番茄雨 ———
 const rainContainer = document.getElementById('rain-container');
 const raindropSrc = 'assets/meta/tomato.png';
