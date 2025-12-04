@@ -59,38 +59,52 @@
 
 // ——— 悬浮描述 ———
 const descriptionArea = document.getElementById('description-area');
+const descriptionCopy = descriptionArea?.querySelector('.description-copy');
+const defaultDescription = '🍅↖(#^.^#)↗🍅<br>Hi human, welcome to <br>TOMATOLAND.';
+
+function setDescription(html) {
+  if (!descriptionCopy) return;
+  descriptionCopy.innerHTML = html;
+}
+
 const works = document.querySelectorAll('.work');
 works.forEach(work => {
   const desc = work.getAttribute('data-description');
-  work.addEventListener('mouseenter', () => { descriptionArea.innerHTML = desc; });
-  work.addEventListener('mouseleave', () => {
-    descriptionArea.innerHTML = '🍅↖(#^.^#)↗🍅<br>Hi human, welcome to <br>TOMATOLAND.';
-  });
+  work.addEventListener('mouseenter', () => setDescription(desc));
+  work.addEventListener('mouseleave', () => setDescription(defaultDescription));
 });
 const unavailableWorks = document.querySelectorAll('.not_available_work');
 unavailableWorks.forEach(el => {
   const desc = el.getAttribute('data-description');
-  el.addEventListener('mouseenter', () => { descriptionArea.innerHTML = desc; });
-  el.addEventListener('mouseleave', () => {
-    descriptionArea.innerHTML = '🍅↖(#^.^#)↗🍅<br>Hi human, welcome to <br>TOMATOLAND.';
-  });
+  el.addEventListener('mouseenter', () => setDescription(desc));
+  el.addEventListener('mouseleave', () => setDescription(defaultDescription));
 });
 const tomatoWorks = document.querySelectorAll('.tomato_work');
 tomatoWorks.forEach(el => {
   const desc = el.getAttribute('data-description');
-  el.addEventListener('mouseenter', () => { descriptionArea.innerHTML = desc; });
-  el.addEventListener('mouseleave', () => {
-    descriptionArea.innerHTML = '🍅↖(#^.^#)↗🍅<br>Hi human, welcome to <br>TOMATOLAND.';
-  });
+  el.addEventListener('mouseenter', () => setDescription(desc));
+  el.addEventListener('mouseleave', () => setDescription(defaultDescription));
 });
 
 // 左上角标题悬浮描述
 const title = document.querySelector('.nav-link');
 const descTitle = title.getAttribute('title-description');
-title.addEventListener('mouseenter', () => { descriptionArea.innerHTML = descTitle; });
-title.addEventListener('mouseleave', () => {
-  descriptionArea.innerHTML = '🍅↖(#^.^#)↗🍅<br>Hi human, welcome to <br>TOMATOLAND.';
-});
+title.addEventListener('mouseenter', () => setDescription(descTitle));
+title.addEventListener('mouseleave', () => setDescription(defaultDescription));
+
+// ——— 左下角滚动指示翻转 ———
+const scrollIndicator = document.querySelector('.scroll-indicator');
+
+function updateIndicatorFlip() {
+  if (!scrollIndicator) return;
+  const doc = document.documentElement;
+  const reachedBottom = doc.scrollTop + doc.clientHeight >= doc.scrollHeight - 2;
+  scrollIndicator.classList.toggle('flip', reachedBottom);
+}
+
+updateIndicatorFlip();
+window.addEventListener('scroll', updateIndicatorFlip, { passive: true });
+window.addEventListener('resize', updateIndicatorFlip);
 
 // ——— 番茄雨 ———
 const rainContainer = document.getElementById('rain-container');
