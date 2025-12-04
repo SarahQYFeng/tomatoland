@@ -111,7 +111,7 @@ const rainContainer = document.getElementById('rain-container');
 const raindropSrc = 'assets/meta/tomato.png';
 const dropSize = 20;
 const removeDelay = 8000;
-const initialDelay = 50000;
+const initialDelay = 100000;
 
 function createRaindrop() {
   const drop = document.createElement('img');
@@ -164,7 +164,7 @@ function startRainCycle() {
 
   setTimeout(() => {
     clearInterval(rainInterval);
-    setTimeout(startRainCycle, Math.random() * 40000 + 20000);
+    setTimeout(startRainCycle, Math.random() * 200000 + 80000);
   }, rainDuration);
 }
 setTimeout(startRainCycle, initialDelay);
