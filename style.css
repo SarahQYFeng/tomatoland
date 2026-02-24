@@ -6,8 +6,16 @@ html { font-size: calc(22px + 0.3vw); scroll-behavior: smooth; }
 
 @font-face{
   font-family: 'Planar';
-  src: url('assets/fonts/GT-Planar-VF.woff2') format('woff2');
-  font-weight: 100 900;
+  src: url('assets/fonts/GTPlanar-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: 'Planar';
+  src: url('assets/fonts/GTPlanar-Regular.otf') format('opentype');
+  font-weight: 400 450;
   font-style: normal;
   font-display: swap;
 }
@@ -20,7 +28,7 @@ h1:hover { font-size:40pt; color:blue; transition:.2s ease-in-out; cursor:url('a
 .cn-name {font-family: "PingFang SC", sans-serif; font-weight: 400; letter-spacing: 0.02em; font-size: 0.95em;}
 
 
-a { color:#000; text-decoration:none; font-weight:300; transition:.2s ease-in-out; }
+a { color:#000; text-decoration:none; font-weight:300; transition: color .4s ease, font-weight .4s ease; }
 a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png') 16 16, auto; }
 
 /* ——— Tags（解决：字号16pt、纵向排列、hover同链接） ——— */

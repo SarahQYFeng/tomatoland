@@ -16,10 +16,19 @@ html {
 
 @font-face {
     font-family:  'Planar';
-    src: url('../../assets/fonts/GT-Planar-VF.woff2') format('woff2');
-    font-weight: 100 900;
+    src: url('../../assets/fonts/GTPlanar-Light.otf') format('opentype');
+    font-weight: 300;
     font-style: normal;
-    font-display: swap;}
+    font-display: swap;
+}
+
+@font-face {
+    font-family:  'Planar';
+    src: url('../../assets/fonts/GTPlanar-Regular.otf') format('opentype');
+    font-weight: 400 450;
+    font-style: normal;
+    font-display: swap;
+}
 
 body {
 	margin: 20px;
@@ -61,7 +70,7 @@ a{
 	color: black;
 	text-decoration: none;
     font-weight: 300;
-	transition: 0.2s ease-in-out;
+	transition: color .4s ease, font-weight .4s ease;
 }
 
 a:hover{
