@@ -143,6 +143,10 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
   gap: var(--nav-link-gap);
   margin: 0;
 }
+.text-wrapper .nav-links a.active {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
 
 /* 作品区 */
 #container {
