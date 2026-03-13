@@ -18,25 +18,27 @@
   </head>
 
   <body>
-    <!-- 左上角标题（与作品页结构一致） -->
-    <div class="nav-link">
+    <header class="site-header">
       <div class="title">
         <a href="index.html">
           <img class="defalt" src="assets/meta/title-grey.png" alt="Sarah Feng" />
           <img class="hover" src="assets/meta/title-hover.png" alt="Sarah Feng" />
         </a>
       </div>
-    </div>
-
-    <div class="text-wrapper">
-      <p class="info nav-links">
+      <nav class="nav-links">
         <a href="about.html">About</a>
         <a href="archive.html">Archive</a>
         <a href="mailto:sarahfengqy@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/sarah-qianyin-feng-0a6789269/">LinkedIn</a>
         <a href="https://www.instagram.com/sarahqianyin/">Instagram</a>
-      </p>
-    </div>
+      </nav>
+      <div id="description-area">
+        <div class="description-copy">
+          <span class='desc-title'>🍅↖(#^.^#)↗🍅 Hi human, welcome to TOMATOLAND.</span><br>
+          This is Sarah's universe of graphic design, interactive systems, and random ideas.
+        </div>
+      </div>
+    </header>
 
     <!-- 左右箭头 -->
     <!-- <div class="arrow prev"><h1>&#8592;</h1></div>
@@ -202,13 +204,7 @@
       </div>
     </div> -->
 
-    <!-- 悬浮描述区（16pt） -->
-    <div id="description-area">
-      <div class="description-copy">
-        <span class='desc-title'>🍅↖(#^.^#)↗🍅 Hi human, welcome to TOMATOLAND.</span><br>
-        This is Sarah's universe of graphic design, interactive systems, and random ideas.
-      </div>
-    </div>
+    <!-- description-area 已移入 site-header -->
 
     <!-- 番茄雨 -->
     <div id="rain-container"></div>

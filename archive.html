@@ -19,36 +19,27 @@
 
   <body>
     <!-- 左上角标题（与作品页结构一致） -->
-    <div class="nav-link">
+    <header class="site-header">
       <div class="title">
         <a href="index.html">
           <img class="defalt" src="assets/meta/title-grey.png" alt="Sarah Feng" />
           <img class="hover" src="assets/meta/title-hover.png" alt="Sarah Feng" />
         </a>
       </div>
-    </div>
-
-    <div class="text-wrapper">
-      <p class="info nav-links">
+      <nav class="nav-links">
         <a href="about.html">About</a>
         <a href="archive.html" class="active">Archive</a>
         <a href="mailto:sarahfengqy@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/sarah-qianyin-feng-0a6789269/">LinkedIn</a>
         <a href="https://www.instagram.com/sarahqianyin/">Instagram</a>
-      </p>
-    </div>
-
-    <!-- 左右箭头 -->
-    <!-- <div class="arrow prev"><h1>&#8592;</h1></div>
-    <div class="arrow next"><h1>&#8594;</h1></div> -->
-
-    <!-- 右上角过滤标签（纵向，一行一个） -->
-    <!-- <div class="description filters" id="filters">
-      <button class="tag-btn" data-tag="Editorial">#Editorial</button>
-      <button class="tag-btn" data-tag="Identity">#Identity</button>
-      <button class="tag-btn" data-tag="Game & UIUX">#Game & UIUX</button>
-      <button class="tag-btn" data-tag="Archive">#Archive</button>
-    </div> -->
+      </nav>
+      <div id="description-area">
+        <div class="description-copy">
+          <span class='desc-title'>🍅↖(#^.^#)↗🍅 Hi human, welcome to TOMATOLAND.</span><br>
+          This is Sarah's universe of graphic design, interactive systems, and random ideas.
+        </div>
+      </div>
+    </header>
 
     <!-- 作品格子 -->
     <div id="container" class="works-container">
@@ -73,7 +64,7 @@
         <img class="gif" src="assets/works_home/travel_guide_hover.png" alt="zine design"/>
       </div>
 
-      <div class="work" data-description="No Matter Where / Fall 2024 / Poster"
+      <div class="work" data-description="No Matter Where / Fall 2024 / Poster Series"
         data-tags="Archive"
         >
         <img class="static" src="assets/works_home/be more creative2.jpg" alt="Poster design" />
@@ -87,6 +78,13 @@
         <img class="static" src="assets/works_home/C. Covers.jpg" alt="zine cover" />
         <img class="gif" src="assets/works_home/pages-gif.gif" alt="zine pages" />
       </div>
+
+      <div class="work" data-description="Venturing into the Virtural Unknown Together / Winter 2025 / Online Publication & Invitation Card"
+        data-tags="Archive">
+        <img class="static" src="assets/works_home/v1wscards.png" alt="Invitation card design"/>
+        <img class="gif" src="assets/works_home/v1WS.gif" alt="Online Publication"/>
+      </div>
+      
 
       <div class="work" data-description="Tea Type / Spring 2024 / Chinese Typeface"
         data-tags="Archive">
@@ -114,14 +112,14 @@
         <img class="gif" src="assets/works_home/human-earing.JPG" alt="jewelry design"/>
       </div>
 
-      <div class="work" data-description="My Voice is Pink / Spring 2024 / Poster"
+      <div class="work" data-description="My Voice is Pink / Spring 2024 / Riso Poster"
         data-tags="Archive"
         >
         <img class="static" src="assets/works_home/my voice is pink.png" alt="poster design printed with risograph"/>
         <img class="gif" src="assets/works_home/my-voice-is-pink_motion.gif" alt="poster design printed with risograph" />
       </div>
 
-      <div class="work" data-description="v.1 Open Call Poster / Winter 2024 / Poster"
+      <div class="work" data-description="v.1 Open Call Poster / Winter 2024 / Poster & Motion"
         data-tags="Archive"
         >
         <img class="static" src="assets/works_home/Winter25_open call.png" alt="Poster" />
@@ -184,13 +182,7 @@
       </div>
     </div> -->
 
-    <!-- 悬浮描述区（16pt） -->
-    <div id="description-area">
-      <div class="description-copy">
-        <span class='desc-title'>🍅↖(#^.^#)↗🍅 Hi human, welcome to TOMATOLAND.</span><br>
-        This is Sarah's universe of graphic design, interactive systems, and random ideas.
-      </div>
-    </div>
+    <!-- description-area 已移入 site-header -->
 
     <!-- 番茄雨 -->
     <div id="rain-container"></div>

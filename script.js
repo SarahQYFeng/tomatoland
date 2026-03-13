@@ -87,10 +87,9 @@ tomatoWorks.forEach(el => {
 });
 
 // 左上角标题悬浮描述
-const title = document.querySelector('.nav-link');
-const descTitle = title?.getAttribute('title-description') || defaultDescription;
-title?.addEventListener('mouseenter', () => setDescription(descTitle));
-title?.addEventListener('mouseleave', () => setDescription(defaultDescription));
+const titleEl = document.querySelector('.site-header .title');
+titleEl?.addEventListener('mouseenter', () => setDescription(defaultDescription));
+titleEl?.addEventListener('mouseleave', () => setDescription(defaultDescription));
 
 // ——— 左下角滚动指示翻转 ———
 const scrollIndicator = document.querySelector('.scroll-indicator');

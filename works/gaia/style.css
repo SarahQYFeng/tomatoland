@@ -80,52 +80,27 @@ a:hover{
 }
 
 
-/* Links */
-.nav-link {
-    position: absolute;
-    top: 20px;
-    left: 20px; 
-    width: 250px;
-	/* width: 500px; */
-	height: 200px;
-    z-index: 1000;
-} 
-  
-.title img {
-  width: 250px;
-	/* width: 500px; */
-	height: auto;
-	top: 5px;
-	position: absolute;
-	display: block;
-	transition: .2s ease-in-out;
-	/* backdrop-filter: blur(12px); */
+/* ——— 顶栏：header flex 布局（与主页一致） ——— */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 90px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 3em;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
 }
-
-.title .hover {
-  opacity: 0;
-}
-
-.title:hover .hover {
-  opacity: 1;
-  cursor: url('../../assets/meta/cursor_hover.png') 16 16, auto;
-}
-
-.title:hover .defalt {
-  opacity: 0;
-}
-
-
-
-/* main */
-
-.text-wrapper {
-	top: 20px;
-	margin-left: 17%;
-    text-align: left;
-	position: absolute;
-	z-index: 100;
-}
+.site-header .title { position: relative; width: 250px; height: 55px; flex-shrink: 0; }
+.site-header .title img { width: 250px; height: auto; position: absolute; top: 0; display: block; transition: .2s ease-in-out; }
+.site-header .title .hover { opacity: 0; }
+.site-header .title:hover .hover { opacity: 1; cursor: url('../../assets/meta/cursor_hover.png') 16 16, auto; }
+.site-header .title:hover .defalt { opacity: 0; }
+.site-header .nav-links { display: flex; gap: 3em; font-size: 10pt; line-height: 1.3em; white-space: nowrap; }
+.site-header .header-info { font-size: 10pt; line-height: 1.3em; padding-top: 0.4em; }
+.site-header .header-info .info { margin: 0; }
 
 .description {
 	top: 20px;
@@ -145,7 +120,7 @@ a:hover{
 
 #detail_container{
 	width: 94%;
-	margin: 9em auto 0;
+	margin: 5em auto 0;
 	display: block;
     z-index: 0;
 }
@@ -223,112 +198,29 @@ a:hover{
 	pointer-events: none;
 }
 
-/* 响应式布局 - 手机端 */
 @media (max-width: 768px) {
-	body {
-		margin: 20px;
-	}
-
-	/* 标题变成全屏宽 */
-	.nav-link {
+	.site-header {
 		position: relative;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: auto;
-		margin-bottom: 20px;
-	}
-
-	.title {
-		position: relative;
-		top: -45px;
-		width: 100%;
-	}
-
-	.title a {
-		display: block;
-		position: relative;
-		width: 100%;
-	}
-
-	.title .defalt {
-		position: static;
-		width: 100%;
-		height: auto;
-		display: block;
-	}
-
-	.title .hover {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		display: block;
-		object-fit: contain;
-		object-position: left top;
-	}
-
-	/* 项目信息移到标题下方 */
-	.text-wrapper {
-		position: relative;
-		top: -20px;
-		margin-left: 0;
-		margin-bottom: 20px;
-	}
-
-	/* 描述文字先隐藏，稍后移到底部 */
-	.description {
-		position: relative;
-		top: auto;
-		margin-left: 0;
-		width: 100%;
-		order: 10;
-	}
-
-	/* 内容区域 */
-	#detail_container {
-		width: 100%;
-		margin: 0 auto 0;
-	}
-
-	/* 底部信息 */
-	.text-footer {
-		margin-left: 0;
-		margin-top: 20px;
-	}
-
-	/* 使用 flexbox 重新排序 */
-	body {
-		display: flex;
 		flex-direction: column;
+		height: auto;
+		gap: 0.5em;
+		padding: 20px;
+		border-bottom: none;
+		background: transparent;
 	}
-
-	.nav-link {
-		order: 1;
+	.site-header .title { width: 100%; height: auto; }
+	.site-header .title img { position: static; width: 100%; height: auto; }
+	.site-header .title .hover {
+		position: absolute; top: 0; left: 0;
+		width: 100%; height: 100%;
+		object-fit: contain; object-position: left top;
 	}
-
-	.text-wrapper {
-		order: 2;
-	}
+	.site-header .nav-links { gap: 1.5em; padding-top: 0; }
+	.site-header .header-info { padding-top: 0; }
 
 	#detail_container {
-		order: 3;
-	}
-
-	.description {
-		order: 4;
-		margin-top: 20px;
-	}
-
-	.text-footer {
-		order: 5;
-		margin-top: 20px;
-		margin-bottom: 60px;
-	}
-
-	#top-button {
-		order: 6;
+		width: 100%;
+		margin: 1em auto 0;
 	}
 }
 

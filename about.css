@@ -78,161 +78,76 @@ a:hover { color:red; font-weight:450; cursor:url('assets/meta/cursor-red.png') 1
   outline-offset: 3px;
 }
 
-/* 与 index 一致：用变量控制 nav 位置和词间距，改这里即可与 index 同步 */
-:root {
-  --nav-inset-top: 45px;
-  --nav-inset-left: 17%;
-  --nav-link-gap: 3em;
-}
-
-/* 导航与 index 同布局（位置、尺寸一致），颜色保留白/红 */
-.nav-link {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 250px;
-    height: 200px;
-    z-index: 1000;
-}
-.title { position: relative; height: 80px; }
-.title img {
-    width: 250px;
-    height: auto;
-    top: 5px;
-    position: absolute;
-    display: block;
-    transition: 0.2s ease-in-out;
-}
-
-
-.text-wrapper {
+/* ——— 顶栏：header flex 布局（与 index 一致，颜色保留白/红） ——— */
+.site-header {
   position: fixed;
-  top: var(--nav-inset-top);
-  margin-left: var(--nav-inset-left);
-  text-align: left;
-  z-index: 100;
-}
-.text-wrapper .info,
-.text-wrapper .info.nav-links {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  padding: 0 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0 var(--nav-link-gap);
-  margin: 0;
+  align-items: center;
+  gap: 3em;
+  z-index: 1000;
+  background: blue;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.site-header .title {
+  position: relative;
+  width: 250px;
+  height: 55px;
+  flex-shrink: 0;
+}
+.site-header .title img {
+  width: 250px;
+  height: auto;
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s ease-in-out;
+}
+.site-header .title .hover { opacity: 0; }
+.site-header .title:hover .hover { opacity: 1; cursor: url('assets/meta/cursor-red.png') 16 16, auto; }
+.site-header .title:hover .defalt { opacity: 0; }
+.site-header .nav-links {
+  display: flex;
+  gap: 3em;
   font-size: 10pt;
   line-height: 1.3em;
+  white-space: nowrap;
 }
-.text-wrapper .nav-links a.active {
+.site-header .nav-links a.active {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
-.title .hover {
-  opacity: 0;
-}
-
-.title:hover .hover {
-  opacity: 1;
-  cursor: url('assets/meta/cursor-red.png') 16 16, auto;
-}
-
-.title:hover .defalt {
-  opacity: 0;
-}
-
-/* 响应式布局 - 手机端 */
+/* 响应式：手机端 */
 @media (max-width: 768px) {
-  body {
-    margin: 20px;
-  }
-
-  /* 标题变成全屏宽 */
-  .nav-link {
+  body { margin: 20px; }
+  .site-header {
     position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
+    flex-direction: column;
     height: auto;
-    margin-bottom: 20px;
+    gap: 0.5em;
+    padding: 20px;
+    border-bottom: none;
+    background: transparent;
   }
-
-  /* 隐藏 nav-link 中的 br 标签 */
-  .nav-link br {
-    display: none;
+  .site-header .title { width: 100%; height: auto; }
+  .site-header .title img { position: static; width: 100%; height: auto; }
+  .site-header .title .hover {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain; object-position: left top;
   }
-
-  .title {
-    position: relative;
-    width: 100%;
-  }
-
-  .title a {
-    display: block;
-    position: relative;
-    width: 100%;
-  }
-
-  .title .defalt {
-    position: static;
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .title .hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain;
-    object-position: left top;
-  }
-
-  /* 个人信息移到标题下方 */
-  .text-wrapper {
-    position: relative;
-    top: 0;
-    margin-left: 0;
-    margin-bottom: 20px;
-  }
-
-  /* 隐藏过滤标签 */
-  .filters {
-    display: none;
-  }
-
-  /* 正文段落样式调整 */
+  .site-header .nav-links { gap: 1.5em; padding-top: 0; }
+  .filters { display: none; }
   body > p {
     font-size: 20pt !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-bottom: 20px;
   }
-
-  /* 使用 flexbox 重新排序 */
-  body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nav-link {
-    order: 1;
-  }
-
-  .text-wrapper {
-    order: 2;
-  }
-
-  body > br {
-    display: none;
-  }
-
-  body > p:nth-of-type(1) {
-    order: 3;
-  }
-
-  body > p:nth-of-type(2) {
-    order: 4;
-  }
+  body > br { display: none; }
 }

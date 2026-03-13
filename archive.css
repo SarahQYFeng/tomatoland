@@ -31,22 +31,21 @@ h1:hover { font-size:40pt; color:blue; transition:.2s ease-in-out; cursor:url('a
 a { color:#000; text-decoration:none; font-weight:300; transition: color .4s ease, font-weight .4s ease; }
 a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png') 16 16, auto; }
 
-/* ——— 作品描述区（与作品页 .description 同位置、字号、行距） ——— */
+/* ——— 作品描述区（在 site-header 内，绝对定位固定起始位置） ——— */
 #description-area {
-  position: fixed;
-  top: 20px;
-  margin-left: 60%;
-  width: 35%;
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
   text-align: left;
-  z-index: 100;
   pointer-events: none;
   font-size: 10pt;
   line-height: 1.3em;
-  transition: opacity 0.2s ease-in-out;
 }
 #description-area .description-copy {
   text-align: left;
-  margin: 0.4em 0;
+  margin: 0;
 }
 #description-area .desc-title {
   font-size: 12pt;
@@ -101,49 +100,46 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
   outline-offset: 3px;
 }
 
-/* 导航与作品页结构一致：nav-link + text-wrapper */
-.nav-link {
+/* ——— 顶栏：header flex 布局（与 index 一致） ——— */
+.site-header {
   position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 250px;
-  height: 200px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 3em;
   z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
 }
-.title { position: relative; height: 80px; }
-.title img { width: 250px; height: auto; top: 5px; position: absolute; display: block; transition: .2s ease-in-out; }
-.title .hover { opacity: 0; }
-.title:hover .hover { opacity: 1; cursor: url('assets/meta/cursor_hover.png') 16 16, auto; }
-.title:hover .defalt { opacity: 0; }
-
-/* 导航链接行：可调与边缘距离、词间距（改下面两个变量即可） */
-:root {
-  --nav-inset-top: 45px;      /* 距离页面顶边的距离 */
-  --nav-inset-left: 17%;      /* 距离页面左边的距离 */
-  --nav-link-gap: 3em;        /* 词与词之间的间距 */
+.site-header .title {
+  position: relative;
+  width: 250px;
+  height: 55px;
+  flex-shrink: 0;
 }
-
-.text-wrapper {
-  position: fixed;
-  top: var(--nav-inset-top);
-  margin-left: var(--nav-inset-left);
-  text-align: left;
-  z-index: 100;
-}
-.text-wrapper .info,
-.info {
+.site-header .title img {
+  width: 250px;
+  height: auto;
+  position: absolute;
+  top: 0;
   display: block;
-  margin: 0.4em 0;
+  transition: .2s ease-in-out;
+}
+.site-header .title .hover { opacity: 0; }
+.site-header .title:hover .hover { opacity: 1; cursor: url('assets/meta/cursor_hover.png') 16 16, auto; }
+.site-header .title:hover .defalt { opacity: 0; }
+.site-header .nav-links {
+  display: flex;
+  gap: 3em;
   font-size: 10pt;
   line-height: 1.3em;
+  white-space: nowrap;
 }
-.text-wrapper .info.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--nav-link-gap);
-  margin: 0;
-}
-.text-wrapper .nav-links a.active {
+.site-header .nav-links a.active {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -197,6 +193,10 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
     gap: 36px;
   }
+  .site-header { gap: 2em; }
+}
+@media (max-width: 1280px) {
+  #description-area { display: none; }
 }
 @media (max-width: 640px) {
   #container {
@@ -208,95 +208,6 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 
 /* 悬浮描述（位置/字号在 #description-area 上方已与作品页一致） */
 
-.scroll-indicator {
-  position: fixed;
-  left: 1.5rem;
-  bottom: 1.5rem;
-  width: 20px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  pointer-events: none;
-  z-index: 1000;
-}
-
-.fork-container {
-  height: 85px;
-  width: 60%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-bottom: -65px;
-  animation: forkBounce 2s ease-in-out infinite;
-}
-
-.fork-container img {
-  height: 100%;
-  width: auto;
-}
-
-.tomato-stack {
-  position: relative;
-  width: 68px;
-  height: 65px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.tomato-body {
-  position: absolute;
-  bottom: 0;
-  width: 30%;
-  height: 30%;
-  transform-origin: 50% 100%;
-  z-index: 1;
-  animation: tomatoStretch 2s ease-in-out infinite;
-}
-
-.tomato-head {
-  position: absolute;
-  width: 30%;
-  bottom: calc(100% - 46px);
-  transform-origin: 50% 100%;
-  z-index: 3;
-  animation: tomatoHeadFloat 2s ease-in-out infinite;
-}
-
-.scroll-indicator.flip .tomato-stack {
-  order: 1;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.scroll-indicator.flip .fork-container {
-  order: 3;
-  margin-bottom: 0;
-  margin-top: -65px;
-}
-
-.scroll-indicator.flip .fork-container img {
-  transform: scaleY(-1);
-}
-
-@keyframes forkBounce {
-  0%, 100% { transform: translateY(4px); }
-  50% { transform: translateY(-28px); }
-}
-
-@keyframes tomatoStretch {
-  0%, 100% { transform: scaleY(0.42); }
-  50% { transform: scaleY(1.42); }
-}
-
-@keyframes tomatoHeadFloat {
-  0%, 100% { transform: translateY(14px); }
-  50% { transform: translateY(-6px); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .fork-container,
   .tomato-body,
@@ -306,136 +217,36 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 }
 
 
-/* 响应式布局 - 手机端 */
-@media (max-width: 768px){
-  body {
-    margin: 20px;
-  }
-
-  /* 标题变成全屏宽 */
-  .nav-link {
+/* 响应式：手机端 */
+@media (max-width: 768px) {
+  body { margin: 20px; }
+  .site-header {
     position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  /* 隐藏 nav-link 中的 br 标签 */
-  .nav-link br {
-    display: none;
-  }
-
-  .title {
-    position: relative;
-    width: 100%;
-  }
-
-  .title a {
-    display: block;
-    position: relative;
-    width: 100%;
-  }
-
-  .title .defalt {
-    position: static;
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .title .hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain;
-    object-position: left top;
-  }
-
-  /* 个人信息移到标题下方 */
-  .text-wrapper {
-    position: relative;
-    top: 0;
-    margin-left: 0;
-    margin-bottom: 20px;
-  }
-
-  /* 隐藏过滤标签 */
-  .filters {
-    display: none;
-  }
-
-  /* 隐藏悬浮描述区 */
-  #description-area {
-    display: none;
-  }
-
-  /* 作品区域 */
-  #container {
-    width: 100%;
-    margin: 0 auto 2rem;
-  }
-
-  /* 隐藏顶部和底部遮罩 */
-  body::before,
-  body::after {
-    display: none;
-  }
-
-  /* 使用 flexbox 重新排序 */
-  body {
-    display: flex;
     flex-direction: column;
+    height: auto;
+    gap: 0.5em;
+    padding: 20px;
+    border-bottom: none;
+    background: transparent;
   }
-
-  .nav-link {
-    order: 1;
+  .site-header .title { width: 100%; height: auto; }
+  .site-header .title img { position: static; width: 100%; height: auto; }
+  .site-header .title .hover {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: contain; object-position: left top;
   }
-
-  .text-wrapper {
-    order: 2;
-  }
-
+  .site-header .nav-links { gap: 1.5em; padding-top: 0; }
+  .filters { display: none; }
+  #description-area { display: none; }
   #container {
-    order: 3;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+    width: 100%;
+    margin: 1em auto 2rem;
   }
-
-  #rain-container {
-    order: 4;
-  }
+  body::before, body::after { display: none; }
 }
-
-
-/* 顶部渐变遮罩 */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 1%;
-  width: 98%;
-  height: 100px; /* 覆盖顶部标题区的高度，可按视觉再调 */
-  pointer-events: none;
-  background: #fff;
-  border-bottom: 1px solid #eaeaea;
-  z-index: 50; /* 必须比作品区高，比标题区文字低 */
-}
-
-/* 底部渐变遮罩 */
-/* body::after {
-  content: "";
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 120px; 
-  pointer-events: none;
-  background: #fff;
-  z-index: 50;
-} */
 
 /* 番茄雨 */
 #rain-container { position: fixed; top: -1vh; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; overflow: hidden; }
