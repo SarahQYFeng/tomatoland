@@ -79,6 +79,21 @@ a:hover{
 	cursor: url('../../assets/meta/cursor_hover.png') 16 16, auto;
 }
 
+.project-info {
+	display: flex;
+	gap: 2em;
+	margin: 1em 0;
+}
+.project-meta {
+	flex: 0 0 20%;
+}
+.project-meta .project-title {
+	font-size: 12pt;
+	font-weight: 900;
+}
+.project-desc {
+	flex: 1;
+}
 
 /* ——— 顶栏：header flex 布局（与主页一致） ——— */
 .site-header {
@@ -221,6 +236,10 @@ a:hover{
 	#detail_container {
 		width: 100%;
 		margin: 1em auto 0;
+	}
+	.project-info {
+		flex-direction: column;
+		gap: 1em;
 	}
 }
 

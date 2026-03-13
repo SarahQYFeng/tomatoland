@@ -115,19 +115,7 @@ a:hover{
 .site-header .title:hover .hover { opacity: 1; cursor: url('../../assets/meta/cursor_hover.png') 16 16, auto; }
 .site-header .title:hover .defalt { opacity: 0; }
 .site-header .nav-links { display: flex; gap: 3em; font-size: 10pt; line-height: 1.3em; white-space: nowrap; }
-#description-area {
-  position: absolute;
-  left: 60%;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 20px;
-  text-align: left;
-  pointer-events: none;
-  font-size: 10pt;
-  line-height: 1.3em;
-}
-#description-area .description-copy { text-align: left; margin: 0; }
-#description-area .desc-title { font-size: 12pt; line-height: 1.4em; }
+
 
 .info,
 #title {

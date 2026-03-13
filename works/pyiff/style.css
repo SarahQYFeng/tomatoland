@@ -83,17 +83,17 @@ a:hover{
 	display: flex;
 	gap: 2em;
 	margin: 1em 0;
-  }
-  .project-meta {
+}
+.project-meta {
 	flex: 0 0 20%;
-  }
-  .project-meta .project-title {
+}
+.project-meta .project-title {
 	font-size: 12pt;
 	font-weight: 900;
-  }
-  .project-desc {
+}
+.project-desc {
 	flex: 1;
-  }
+}
 
 
 /* ——— 顶栏：header flex 布局（与主页一致） ——— */
