@@ -52,54 +52,6 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
   line-height: 1.4em;
 }
 
-/* ——— Tags（在描述区右侧） ——— */
-.filters {
-  position: fixed;
-  top: 20px;
-  margin-left: 86%;
-  width: 10%;
-  text-align: left;
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  font-size: 12pt;
-  line-height: 1.3em;
-}
-
-.tag-btn {
-  appearance: none;
-  border: none;
-  background: transparent;
-  font: inherit;              /* 继承 16pt */
-  color: #000;
-  padding: 0;                 /* 像链接一样紧凑 */
-  text-align: left;
-  display: inline-block;
-  position: relative;
-  cursor: url('assets/meta/cursor.png') 16 16, auto;
-  transition: color .2s ease-in-out, font-weight .2s ease-in-out;
-}
-
-.tag-btn:hover {
-  color: blue;                /* 与 a:hover 同步 */
-  font-weight: 450;
-  cursor: url('assets/meta/cursor_hover.png') 16 16, auto;
-}
-
-
-.tag-btn.active {
-  color: blue;
-  font-weight: 450;
-  cursor: url('assets/meta/cursor_hover.png') 16 16, auto;
-}
-
-
-.tag-btn:focus-visible {
-  outline: 2px dashed currentColor;
-  outline-offset: 3px;
-}
-
 /* ——— 顶栏：header flex 布局（与 index 一致） ——— */
 .site-header {
   position: fixed;
@@ -146,18 +98,16 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 
 /* 作品区 */
 #container {
-  /* 宽度不再固定，自动适配屏幕 */
   width: min(1600px, 92vw);
   margin: 9em auto 7rem;
   display: grid;
-  /* 自动铺列，最小卡片宽度 240px，不够就换行 */
   grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
   gap: 80px 60px; /* 行、列间距 */
   z-index: 0;
 }
 
 /* 卡片：不再固定 px/em 尺寸，使用 aspect-ratio 保持正方形 */
-.work, .not_available_work, .tomato_work {
+.work {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;      /* 正方形卡片 */
@@ -166,10 +116,11 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
   /* 重要：去掉 float 与外边距 */
 }
 
-/* 图片覆盖卡片，contain 保证完整可见 */
-.work img, .not_available_work img, .tomato_work img{
+/* 图片/视频覆盖卡片，contain 保证完整可见 */
+.work img,
+.work video {
   position: absolute;
-  inset: 0;                 /* top/right/bottom/left 全 0 */
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -177,15 +128,9 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 }
 
 /* 其余 hover 效果保持 */
-.work .gif, .not_available_work .gif, .tomato_work .gif { opacity: 0; }
+/* .work .gif, .not_available_work .gif, .tomato_work .gif { opacity: 0; }
 .work:hover .gif { opacity: 1; cursor:url('assets/meta/cursor_hover.png') 16 16, auto; }
-.work:hover .static { opacity: 0; }
-.not_available_work { cursor:url('assets/meta/cursor_unavailable.png') 16 16, auto; }
-.not_available_work:hover .gif { opacity: 1; cursor:url('assets/meta/cursor_unavailable.png') 16 16, auto; }
-.not_available_work:hover .static { opacity: 0; }
-.tomato_work { cursor:url('assets/meta/cursor_tomato_cart.png') 16 16, auto; }
-.tomato_work:hover .gif { opacity: 1; cursor:url('assets/meta/cursor_tomato_cart.png') 16 16, auto; }
-.tomato_work:hover .static { opacity: 0; }
+.work:hover .static { opacity: 0; } */
 
 /* 响应式：平板与手机时的卡片最小宽度更小、间距更紧 */
 @media (max-width: 1024px) {

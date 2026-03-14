@@ -168,7 +168,7 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 }
 
 /* 图片覆盖卡片，contain 保证完整可见 */
-.work img, .not_available_work img, .tomato_work img{
+.work img, .not_available_work img, .tomato_work img, .work video{
   position: absolute;
   inset: 0;                 /* top/right/bottom/left 全 0 */
   width: 100%;
@@ -363,6 +363,6 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 } */
 
 /* 番茄雨 */
-#rain-container { position: fixed; top: -1vh; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; overflow: hidden; }
+#rain-container { position: fixed; top: 0vh; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; overflow: hidden; }
 .raindrop { will-change: transform, opacity; transition: opacity .5s ease; }
 .raindrop.fade-out { opacity: 0; }
