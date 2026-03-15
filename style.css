@@ -168,7 +168,8 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 }
 
 /* 图片覆盖卡片，contain 保证完整可见 */
-.work img, .not_available_work img, .tomato_work img, .work video{
+.work img, .not_available_work img, .tomato_work img,
+.work video, .not_available_work video, .tomato_work video {
   position: absolute;
   inset: 0;                 /* top/right/bottom/left 全 0 */
   width: 100%;
