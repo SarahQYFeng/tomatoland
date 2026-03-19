@@ -132,6 +132,13 @@ a:hover { color:blue; font-weight:450; cursor:url('assets/meta/cursor_hover.png'
 .work:hover .gif { opacity: 1; cursor:url('assets/meta/cursor_hover.png') 16 16, auto; }
 .work:hover .static { opacity: 0; } */
 
+/* 仅带 .work--hover-cursor 的作品在悬停时显示 hover 光标 */
+.work--hover-cursor:hover a,
+.work--hover-cursor:hover video,
+.work--hover-cursor:hover img {
+  cursor: url('assets/meta/cursor_hover.png') 16 16, auto;
+}
+
 /* 响应式：平板与手机时的卡片最小宽度更小、间距更紧 */
 @media (max-width: 1024px) {
   #container {
