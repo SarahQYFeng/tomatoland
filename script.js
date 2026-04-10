@@ -105,6 +105,87 @@ updateIndicatorFlip();
 window.addEventListener('scroll', updateIndicatorFlip, { passive: true });
 window.addEventListener('resize', updateIndicatorFlip);
 
+// ——— ScrambledText 作品描述 ———
+(function () {
+  if (typeof gsap === 'undefined' || typeof SplitText === 'undefined' || typeof ScrambleTextPlugin === 'undefined') return;
+
+  gsap.registerPlugin(SplitText, ScrambleTextPlugin);
+
+  const RADIUS = 120;
+  const DURATION = 1.2;
+  const SPEED = 0.5;
+  const CHARS = '.:';
+
+  document.querySelectorAll('.work, .not_available_work, .tomato_work').forEach(workEl => {
+    const descHtml = workEl.getAttribute('data-description') || '';
+    if (!descHtml) return;
+
+    const temp = document.createElement('div');
+    temp.innerHTML = descHtml;
+    const titleEl = temp.querySelector('.desc-title');
+    const title = titleEl ? titleEl.textContent.trim() : '';
+    if (titleEl) titleEl.remove();
+    const body = temp.textContent.replace(/\s+/g, ' ').trim();
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'work-item';
+    workEl.parentNode.insertBefore(wrapper, workEl);
+    wrapper.appendChild(workEl);
+
+    const caption = document.createElement('div');
+    caption.className = 'work-caption';
+
+    if (title) {
+      const titleP = document.createElement('p');
+      titleP.className = 'caption-title';
+      titleP.textContent = title;
+      caption.appendChild(titleP);
+    }
+
+    let bodyP = null;
+    if (body) {
+      bodyP = document.createElement('p');
+      bodyP.className = 'caption-body';
+      bodyP.textContent = body;
+      caption.appendChild(bodyP);
+    }
+
+    wrapper.appendChild(caption);
+
+    if (bodyP) {
+      const split = SplitText.create(bodyP, { type: 'words,chars', charsClass: 'char', wordsClass: 'word' });
+
+      split.chars.forEach(c => {
+        const w = c.getBoundingClientRect().width;
+        c.style.minWidth = w + 'px';
+        gsap.set(c, { display: 'inline-block', attr: { 'data-content': c.innerHTML } });
+      });
+
+      wrapper.addEventListener('pointermove', e => {
+        split.chars.forEach(c => {
+          const rect = c.getBoundingClientRect();
+          const dx = e.clientX - (rect.left + rect.width / 2);
+          const dy = e.clientY - (rect.top + rect.height / 2);
+          const dist = Math.hypot(dx, dy);
+
+          if (dist < RADIUS) {
+            gsap.to(c, {
+              overwrite: true,
+              duration: DURATION * (1 - dist / RADIUS),
+              scrambleText: {
+                text: c.dataset.content || '',
+                chars: CHARS,
+                speed: SPEED
+              },
+              ease: 'none'
+            });
+          }
+        });
+      });
+    }
+  });
+})();
+
 // ——— 番茄雨 ———
 const rainContainer = document.getElementById('rain-container');
 const raindropSrc = 'assets/meta/tomato.png';

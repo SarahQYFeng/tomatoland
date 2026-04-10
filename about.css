@@ -84,28 +84,30 @@ a:hover { color:red; font-weight:450; cursor:url('assets/meta/cursor-red.png') 1
   top: 0;
   left: 0;
   right: 0;
-  height: 90px;
-  padding: 0 20px;
+  height: 80px;
+  padding: 0 max(20px, calc((100vw - min(1600px, 92vw)) / 2));
+  border-radius: 80px;
   display: flex;
   align-items: center;
-  gap: 3em;
+  gap: 1.5em;
   z-index: 1000;
   background: blue;
   border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 .site-header .title {
   position: relative;
-  width: 250px;
-  height: 55px;
+  width: 200px;
+  height: 50px;
   flex-shrink: 0;
 }
 .site-header .title img {
-  width: 250px;
+  width: 200px;
   height: auto;
   position: absolute;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: block;
-  transition: 0.2s ease-in-out;
+  transition: opacity .5s ease-in-out;
 }
 .site-header .title .hover { opacity: 0; }
 .site-header .title:hover .hover { opacity: 1; cursor: url('assets/meta/cursor-red.png') 16 16, auto; }
@@ -113,9 +115,16 @@ a:hover { color:red; font-weight:450; cursor:url('assets/meta/cursor-red.png') 1
 .site-header .nav-links {
   display: flex;
   gap: 3em;
-  font-size: 10pt;
+  font-size: 12pt;
   line-height: 1.3em;
   white-space: nowrap;
+}
+.site-header .nav-links a {
+  display: inline-block;
+  transition: transform .5s ease, color .5s ease, font-weight .5s ease;
+}
+.site-header .nav-links a:hover {
+  transform: scale(1.12);
 }
 .site-header .nav-links a.active {
   text-decoration: underline;
@@ -150,4 +159,26 @@ a:hover { color:red; font-weight:450; cursor:url('assets/meta/cursor-red.png') 1
     margin-bottom: 20px;
   }
   body > br { display: none; }
+}
+
+/* ——— 掉落图片 ——— */
+#falling-images-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.falling-img {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 3px;
+  object-fit: contain;
+  will-change: transform;
 }
