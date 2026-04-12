@@ -97,25 +97,58 @@ a:hover{
 
 /* ——— 顶栏：header flex 布局（与主页一致） ——— */
 .site-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 90px;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 3em;
-  z-index: 1000;
-  background: #fff;
-  border-bottom: 1px solid #eaeaea;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 80px;
+	padding: 0 max(20px, calc((100vw - min(1600px, 92vw)) / 2));
+	border-radius: 80px;
+	display: flex;
+	align-items: center;
+	gap: 1.5em;
+	z-index: 1000;
+	background: #ffffff52;
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid #eaeaea;
+	pointer-events: auto;
 }
-.site-header .title { position: relative; width: 250px; height: 55px; flex-shrink: 0; }
-.site-header .title img { width: 250px; height: auto; position: absolute; top: 0; display: block; transition: .2s ease-in-out; }
+.site-header .title {
+	position: relative;
+	width: 200px;
+	height: 50px;
+	flex-shrink: 0;
+}
+.site-header .title img {
+	width: 200px;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: block;
+	transition: opacity .5s ease-in-out;
+}
 .site-header .title .hover { opacity: 0; }
-.site-header .title:hover .hover { opacity: 1; cursor: url('../../assets/meta/cursor_hover.png') 16 16, auto; }
+.site-header .title:hover .hover { opacity: 1; cursor: url('assets/meta/cursor_hover.png') 16 16, auto; }
 .site-header .title:hover .defalt { opacity: 0; }
-.site-header .nav-links { display: flex; gap: 3em; font-size: 10pt; line-height: 1.3em; white-space: nowrap; }
-.site-header .header-info { font-size: 10pt; line-height: 1.3em; padding-top: 0.4em; }
-.site-header .header-info .info { margin: 0; }
+.site-header .nav-links {
+	display: flex;
+	gap: 3em;
+	font-size: 12pt;
+	line-height: 1.3em;
+	white-space: nowrap;
+}
+.site-header .nav-links a {
+	display: inline-block;
+	transition: transform .5s ease, color .5s ease, font-weight .5s ease;
+}
+.site-header .nav-links a:hover {
+	transform: scale(1.12);
+}
+.site-header .nav-links a.active {
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
 
 .description {
 	top: 20px;
