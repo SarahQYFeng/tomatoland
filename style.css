@@ -9,7 +9,7 @@ html { font-size: calc(22px + 0.3vw); scroll-behavior: smooth; }
   src: url('assets/fonts/GTPlanar-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face{
@@ -17,7 +17,7 @@ html { font-size: calc(22px + 0.3vw); scroll-behavior: smooth; }
   src: url('assets/fonts/GTPlanar-Regular.otf') format('opentype');
   font-weight: 400 450;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 body { margin: 20px; font-family: "Planar", sans-serif; font-weight: 300; line-height: 1.3em; }
