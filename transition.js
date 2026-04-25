@@ -4,12 +4,23 @@
     bgColor = '#ffffff';
   }
 
+  var textColor = getComputedStyle(document.body).color;
+  if (!textColor || textColor === 'rgba(0, 0, 0, 0)' || textColor === 'transparent') {
+    textColor = '#000000';
+  }
+
   var style = document.createElement('style');
   style.textContent = [
     '#page-transition-overlay {',
     '  position: fixed; top: 0; left: 0; right: 0; bottom: 0;',
+    '  display: flex; align-items: center; justify-content: center;',
     '  background: ' + bgColor + '; pointer-events: none; z-index: 999;',
     '  opacity: 1; will-change: opacity;',
+    '}',
+    '#page-transition-overlay .pt-loading {',
+    '  font-family: "Planar", sans-serif;',
+    '  font-size: 12pt; font-weight: 300; line-height: 1.2; white-space: pre;',
+    '  margin: 0; padding: 0; color: ' + textColor + ';',
     '}',
     '.no-hover-transition a {',
     '  transition: color .4s ease !important;',
@@ -18,6 +29,54 @@
   document.head.appendChild(style);
 
   var overlay = document.getElementById('page-transition-overlay');
+
+  var LOADING = 'Loading...';
+  var TYPEWRITER_MS = 50;
+  var typeTimer = null;
+  var typePos = 0;
+  var loadingEl = null;
+
+  function getLoadingNode() {
+    if (!loadingEl) {
+      loadingEl = document.createElement('p');
+      loadingEl.className = 'pt-loading';
+      loadingEl.setAttribute('aria-live', 'polite');
+      if (overlay) overlay.appendChild(loadingEl);
+    }
+    return loadingEl;
+  }
+
+  function typewriterTick() {
+    var el = getLoadingNode();
+    typePos += 1;
+    if (typePos > LOADING.length) {
+      typePos = 0;
+    }
+    el.textContent = LOADING.slice(0, typePos);
+  }
+
+  function startTypewriter() {
+    stopTypewriter();
+    getLoadingNode();
+    typePos = 0;
+    function tick() {
+      typewriterTick();
+      typeTimer = window.setTimeout(tick, TYPEWRITER_MS);
+    }
+    typewriterTick();
+    typeTimer = window.setTimeout(tick, TYPEWRITER_MS);
+  }
+
+  function stopTypewriter() {
+    if (typeTimer !== null) {
+      clearTimeout(typeTimer);
+      typeTimer = null;
+    }
+  }
+
+  if (overlay) {
+    startTypewriter();
+  }
 
   function revealPage() {
     var images = Array.prototype.slice.call(document.images);
@@ -47,14 +106,13 @@
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
-            // 禁用 header 链接的 font-weight 过渡，防止光标位置导致字重动画透过 overlay 可见
             if (header) header.classList.add('no-hover-transition');
 
             overlay.style.transition = 'opacity 0.5s ease';
             overlay.style.opacity = '0';
 
             overlay.addEventListener('transitionend', function onDone() {
-              overlay.removeEventListener('transitionend', onDone);
+              stopTypewriter();
               if (header) header.classList.remove('no-hover-transition');
             }, { once: true });
           });
@@ -87,6 +145,7 @@
     e.preventDefault();
     overlay.style.transition = 'opacity 0.4s ease';
     overlay.style.opacity = '1';
+    startTypewriter();
     var dest = link.href;
     setTimeout(function () { window.location.href = dest; }, 400);
   });
