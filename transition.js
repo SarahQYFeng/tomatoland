@@ -104,19 +104,15 @@
       var header = document.querySelector('.site-header') || document.querySelector('header');
 
       requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            if (header) header.classList.add('no-hover-transition');
+        if (header) header.classList.add('no-hover-transition');
 
-            overlay.style.transition = 'opacity 0.5s ease';
-            overlay.style.opacity = '0';
+        overlay.style.transition = 'opacity 0.5s ease';
+        overlay.style.opacity = '0';
 
-            overlay.addEventListener('transitionend', function onDone() {
-              stopTypewriter();
-              if (header) header.classList.remove('no-hover-transition');
-            }, { once: true });
-          });
-        });
+        overlay.addEventListener('transitionend', function onDone() {
+          stopTypewriter();
+          if (header) header.classList.remove('no-hover-transition');
+        }, { once: true });
       });
     });
   }
